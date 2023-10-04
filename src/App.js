@@ -1,8 +1,7 @@
 import './App.css'
 import { connect, disconnect } from '@argent/get-starknet'
 import { useState, useEffect } from 'react'
-import { Contract, number } from 'starknet'
-import { feltToString, stringToFelt } from './utils/utils'
+import { Contract } from 'starknet'
 
 import contractAbi from './abis/abi.json'
 const contractAddress = "0x077e0925380d1529772ee99caefa8cd7a7017a823ec3db7c003e56ad2e85e300"
