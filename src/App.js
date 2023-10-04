@@ -5,16 +5,14 @@ import { Contract, number } from 'starknet'
 import { feltToString, stringToFelt } from './utils/utils'
 
 import contractAbi from './abis/abi.json'
-const contractAddress = "0x049e5c0e9fbb072d7f908e77e117c76d026b8daf9720fe1d74fa3309645eabce"
+const contractAddress = "0x077e0925380d1529772ee99caefa8cd7a7017a823ec3db7c003e56ad2e85e300"
 
 function App() {
   const [connection, setConnection] = useState();
   const [account, setAccount] = useState();
   const [address, setAddress] = useState();
 
-  const [name, setName] = useState('')
-  const [inputAddress, setInputAddress] = useState('')
-  const [retrievedName, setRetrievedName] = useState('')
+  const [retrievedValue, setRetrievedValue] = useState('')
 
   const connectWallet = async() => {
 
@@ -24,11 +22,15 @@ function App() {
 
   }
 
-  const setNameFunction = async() => {
+  const increaseCounter = async() => {
 
   }
 
-  const getNameFunction = async() => {
+  const decreaseCounter = async() => {
+
+  }
+
+  const getCounter = async() => {
 
   }
 
@@ -37,7 +39,7 @@ function App() {
       <header className="App-header">
         <main className="main">
           <h1 className="title">
-            Starknet<a href="#"> ENS</a>
+            Starknet<a href="#"> Counter</a>
           </h1>
             <button className="connect" onClick={connectWallet}>Connect wallet</button>
 
@@ -48,23 +50,18 @@ function App() {
           <div className="grid">
             <div href="#" className="card">
               <h2>Ensure to connect to Mainnet! &rarr;</h2>
-              <p>What name do you want?.</p>
 
+              <p>Increase/Decrease Counter.</p>
               <div className="cardForm">
-                <input type="text" className="input" placeholder="Enter Name" onChange={(e) => setName(e.target.value)} />
-
-                <input type="submit" className="button" value="Store Name" onClick={setNameFunction} />
+                <input type="submit" className="button" value="Increase" onClick={increaseCounter} />
+                <input type="submit" className="button" value="Decrease" onClick={decreaseCounter} />
               </div>
 
               <hr />
-
-              <p>Insert a wallet address, to retrieve its name.</p>
               <div className="cardForm">
-                <input type="text" className="input" placeholder="Enter Address" onChange={(e) => setInputAddress(e.target.value)} />
-
-                <input type="submit" className="button" value="Get Name" onClick={getNameFunction} />
+                <input type="submit" className="button" value="Get Counter" onClick={getCounter} />
+                <p>{retrievedValue}</p>
               </div>
-              <p>Name: {retrievedName}.eth</p>
             </div>
           </div>
         </main>
